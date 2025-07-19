@@ -1,16 +1,162 @@
 @import "tailwindcss";
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@layer base {
+  :root {
+    --background: 330 15% 98%;
+    --foreground: 240 10% 15%;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
+
+    /* Primary - Vibrant Pink/Magenta */
+    --primary: 320 65% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 320 85% 75%;
+
+    /* Secondary - Soft Purple */
+    --secondary: 270 30% 92%;
+    --secondary-foreground: 270 50% 25%;
+
+    /* Muted - Light Gray with Pink Tint */
+    --muted: 320 20% 95%;
+    --muted-foreground: 240 15% 50%;
+
+    /* Accent - Bright Orange */
+    --accent: 35 90% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Success - Playful Green */
+    --success: 140 60% 50%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - Sunny Yellow */
+    --warning: 45 95% 60%;
+    --warning-foreground: 240 10% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 320 25% 90%;
+    --input: 320 25% 95%;
+    --ring: 320 65% 55%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode */
+    --background: 240 15% 8%;
+    --foreground: 330 15% 95%;
+
+    --card: 240 15% 10%;
+    --card-foreground: 330 15% 95%;
+
+    --popover: 240 15% 10%;
+    --popover-foreground: 330 15% 95%;
+
+    --primary: 320 65% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 320 85% 75%;
+
+    --secondary: 240 15% 15%;
+    --secondary-foreground: 330 15% 90%;
+
+    --muted: 240 15% 12%;
+    --muted-foreground: 330 10% 60%;
+
+    --accent: 35 90% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 140 60% 50%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 45 95% 60%;
+    --warning-foreground: 240 10% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 15% 20%;
+    --input: 240 15% 15%;
+    --ring: 320 65% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom gradients and animations */
+@utility gradient-primary {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary)),
+    hsl(var(--primary-glow))
+  );
+}
+
+@utility gradient-card {
+  background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+}
+
+@utility toy-bounce {
+  animation: toy-bounce 2s ease-in-out infinite;
+}
+
+@utility fade-in-up {
+  animation: fade-in-up 0.5s ease-out;
+}
+
+@keyframes toy-bounce {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
