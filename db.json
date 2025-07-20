@@ -1,0 +1,128 @@
+{
+  "customers": {
+    "data": {
+      "clientes": [
+        {
+          "info": {
+            "nomeCompleto": "Ana Beatriz Silva",
+            "detalhes": {
+              "email": "ana.beatriz@email.com",
+              "nascimento": "1992-05-15"
+            }
+          },
+          "estatisticas": {
+            "vendas": [
+              { "data": "2024-01-15", "valor": 150 },
+              { "data": "2024-01-20", "valor": 75 },
+              { "data": "2024-02-03", "valor": 200 },
+              { "data": "2024-02-18", "valor": 85 }
+            ]
+          }
+        },
+        {
+          "info": {
+            "nomeCompleto": "Carlos Eduardo Santos",
+            "detalhes": {
+              "email": "carlos.eduardo@email.com",
+              "nascimento": "1987-08-22"
+            }
+          },
+          "duplicado": {
+            "nomeCompleto": "Carlos Eduardo Santos"
+          },
+          "estatisticas": {
+            "vendas": [
+              { "data": "2024-01-10", "valor": 320 },
+              { "data": "2024-01-25", "valor": 180 },
+              { "data": "2024-02-05", "valor": 450 }
+            ]
+          }
+        },
+        {
+          "info": {
+            "nomeCompleto": "Maria Fernanda Costa",
+            "detalhes": {
+              "email": "maria.fernanda@email.com",
+              "nascimento": "1995-03-10"
+            }
+          },
+          "estatisticas": {
+            "vendas": [
+              { "data": "2024-01-12", "valor": 95 },
+              { "data": "2024-01-18", "valor": 125 },
+              { "data": "2024-01-30", "valor": 160 },
+              { "data": "2024-02-08", "valor": 90 },
+              { "data": "2024-02-15", "valor": 140 },
+              { "data": "2024-02-22", "valor": 110 }
+            ]
+          }
+        },
+        {
+          "info": {
+            "nomeCompleto": "João Pedro Oliveira",
+            "detalhes": {
+              "email": "joao.pedro@email.com",
+              "nascimento": "1990-11-05"
+            }
+          },
+          "estatisticas": {
+            "vendas": [
+              { "data": "2024-01-14", "valor": 280 },
+              { "data": "2024-02-01", "valor": 195 }
+            ]
+          }
+        },
+        {
+          "info": {
+            "nomeCompleto": "Luciana Almeida",
+            "detalhes": {
+              "email": "luciana.almeida@email.com",
+              "nascimento": "1988-07-18"
+            }
+          },
+          "redundante": {
+            "dados": "desnecessarios"
+          },
+          "estatisticas": {
+            "vendas": [
+              { "data": "2024-01-16", "valor": 65 },
+              { "data": "2024-01-28", "valor": 85 },
+              { "data": "2024-02-10", "valor": 120 },
+              { "data": "2024-02-20", "valor": 75 },
+              { "data": "2024-02-25", "valor": 95 }
+            ]
+          }
+        },
+        {
+          "info": {
+            "nomeCompleto": "qwertyuiopasdfghjklzxcvbnm",
+            "detalhes": {
+              "email": "qwerty@email.com",
+              "nascimento": "1988-07-18"
+            }
+          },
+          "redundante": {
+            "dados": "desnecessarios"
+          },
+          "estatisticas": {
+            "vendas": [
+              { "data": "2024-01-16", "valor": 65 },
+              { "data": "2024-01-28", "valor": 85 },
+              { "data": "2024-02-10", "valor": 120 },
+              { "data": "2024-02-20", "valor": 75 },
+              { "data": "2024-02-25", "valor": 95 }
+            ]
+          }
+        }
+      ]
+    },
+    "meta": {
+      "registroTotal": 5,
+      "pagina": 1
+    },
+    "redundante": {
+      "status": "ok",
+      "timestamp": "2024-01-01T00:00:00Z"
+    }
+  }
+}

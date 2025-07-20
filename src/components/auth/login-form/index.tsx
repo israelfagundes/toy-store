@@ -11,15 +11,28 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useAuthStore } from "@/stores/auth-store";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [erro, setErro] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const { login } = useAuthStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
+    setError("");
+
+    const success = await login(email, password);
+
+    if (!success) {
+      setError("Email ou senha incorretos");
+    }
+
+    setIsLoading(false);
   };
 
   return (
@@ -51,27 +64,27 @@ export function LoginForm() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="senha">Senha</Label>
+              <Label htmlFor="password">password</Label>
               <Input
                 className="transition-all duration-200 focus:ring-2 focus:ring-primary"
-                id="senha"
-                onChange={(e) => setSenha(e.target.value)}
+                id="password"
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 required
                 type="password"
-                value={senha}
+                value={password}
               />
             </div>
 
-            {erro && (
+            {error && (
               <Alert variant="destructive">
                 <AlertCircle className="h-4 w-4" />
-                <AlertDescription>{erro}</AlertDescription>
+                <AlertDescription>{error}</AlertDescription>
               </Alert>
             )}
 
             <Button
-              className="gradient-primary w-full transition-opacity hover:opacity-90"
+              className="w-full transition-opacity hover:opacity-90"
               disabled={isLoading}
               type="submit"
             >
@@ -84,7 +97,7 @@ export function LoginForm() {
                 <strong>Email:</strong> admin@toystore.com
               </p>
               <p>
-                <strong>Senha:</strong> admin123
+                <strong>password:</strong> admin123
               </p>
             </div>
           </form>
