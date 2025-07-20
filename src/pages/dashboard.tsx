@@ -1,6 +1,7 @@
 import { AlertTriangle, Loader2 } from "lucide-react";
 import { CustomersTable } from "@/components/customers-table";
 import { Header } from "@/components/layout/header";
+import { MetricsCards } from "@/components/metrics-cards";
 import { Skeleton } from "@/components/ui/skeleton";
 import { API_BASE_URL, useCustomers } from "@/hooks/use-customers";
 import { Alert, AlertDescription } from "../components/ui/alert";
@@ -87,7 +88,10 @@ export function Dashboard() {
           </div>
 
           {customers?.length ? (
-            <CustomersTable customers={customers} />
+            <>
+              <MetricsCards customers={customers} />
+              <CustomersTable customers={customers} />
+            </>
           ) : (
             <Card>
               <CardHeader>
