@@ -2,6 +2,8 @@
 
 A modern, responsive toy store dashboard application built with React, TypeScript, and Tailwind CSS. This project provides a comprehensive interface for managing customer data and sales analytics.
 
+<img width="2500" height="1325" alt="Screenshot 2025-07-20 025431" src="https://github.com/user-attachments/assets/7d2efc2f-3805-4ec9-b030-c41ffb4a080b" />
+
 ## ✨ Features
 
 - **Customer Management**: View and manage customer information
