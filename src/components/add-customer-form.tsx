@@ -164,11 +164,12 @@ export function AddCustomerForm() {
                         </PopoverTrigger>
                         <PopoverContent align="start" className="w-auto p-0">
                           <Calendar
+                            autoFocus
+                            captionLayout="dropdown"
                             className={cn("pointer-events-auto p-3")}
                             disabled={(date) =>
                               date > new Date() || date < new Date("1900-01-01")
                             }
-                            initialFocus
                             mode="single"
                             onSelect={field.onChange}
                             selected={field.value}
