@@ -39,6 +39,7 @@ import {
 import { dayjs } from "@/lib/dayjs";
 import type { Customer, CustomerMetrics } from "@/types";
 import { calculateCustomerMetrics } from "@/utils/data-utils";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 interface CustomerWithMetrics extends Customer {
   metricas: CustomerMetrics;
@@ -81,7 +82,7 @@ export function CustomersTable({ customers }: ClientesTableProps) {
         cell: ({ getValue }) => (
           <div className="flex items-center gap-2">
             <Calendar className="h-4 w-4 text-muted-foreground" />
-            {dayjs(new Date(getValue())).format("dd/MM/yyyy")}
+            {dayjs(new Date(getValue())).format("DD/MM/YYYY")}
           </div>
         ),
       }),
@@ -90,8 +91,8 @@ export function CustomersTable({ customers }: ClientesTableProps) {
         header: "Total Vendas",
         cell: ({ getValue }) => (
           <div className="flex items-center gap-2">
-            <DollarSign className="h-4 w-4 text-success" />
-            <span className="font-medium">R$ {getValue().toFixed(2)}</span>
+            <DollarSign className="h-4 w-4 text-muted-foreground" />
+            <span className="font-medium">{formatCurrency(getValue())}</span>
           </div>
         ),
       }),
@@ -100,8 +101,8 @@ export function CustomersTable({ customers }: ClientesTableProps) {
         header: "Média por Venda",
         cell: ({ getValue }) => (
           <div className="flex items-center gap-2">
-            <DollarSign className="h-4 w-4 text-warning" />
-            <span>R$ {getValue().toFixed(2)}</span>
+            <DollarSign className="h-4 w-4 text-muted-foreground" />
+            <span>{formatCurrency(getValue())}</span>
           </div>
         ),
       }),
@@ -110,7 +111,7 @@ export function CustomersTable({ customers }: ClientesTableProps) {
         header: "Frequência",
         cell: ({ getValue }) => (
           <div className="flex items-center gap-2">
-            <ShoppingCart className="h-4 w-4 text-accent" />
+            <ShoppingCart className="h-4 w-4 text-muted-foreground" />
             <span>{getValue()} compras</span>
           </div>
         ),

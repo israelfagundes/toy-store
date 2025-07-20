@@ -58,3 +58,13 @@ export interface CustomerMetrics {
   frequenciaCompras: number;
   primeiraLetraFaltante: string;
 }
+
+export interface CustomerStore {
+  customers: Customer[];
+  isLoading: boolean;
+  error: string | null;
+  setCustomers: (clientes: Customer[]) => void;
+  addCustomer: (cliente: Omit<Customer, 'id'>) => void;
+  setLoading: (loading: boolean) => void;
+  setError: (error: string | null) => void;
+}

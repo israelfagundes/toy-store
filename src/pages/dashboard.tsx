@@ -1,10 +1,12 @@
 import { AlertTriangle, Loader2 } from "lucide-react";
+import { AddCustomerForm } from "@/components/add-customer-form";
 import { CustomersTable } from "@/components/customers-table";
 import { Header } from "@/components/layout/header";
 import { MetricsCards } from "@/components/metrics-cards";
 import { SalesChart } from "@/components/sales-chart";
 import { Skeleton } from "@/components/ui/skeleton";
 import { API_BASE_URL, useCustomers } from "@/hooks/use-customers";
+import { useCustomerStore } from "@/stores/customer-store";
 import { Alert, AlertDescription } from "../components/ui/alert";
 import {
   Card,
@@ -15,7 +17,12 @@ import {
 } from "../components/ui/card";
 
 export function Dashboard() {
-  const { data: customers, isLoading, error } = useCustomers();
+  const { setCustomers, customers: storedCustomers } = useCustomerStore();
+  const {
+    data: customers,
+    isLoading,
+    error,
+  } = useCustomers({ setCustomers, customers: storedCustomers });
 
   if (isLoading) {
     return (
@@ -87,13 +94,17 @@ export function Dashboard() {
               Gerencie clientes e visualize estatísticas de vendas
             </p>
           </div>
+          <AddCustomerForm />
 
           {customers?.length ? (
             <>
               <MetricsCards customers={customers} />
               <SalesChart customers={customers} />
-              <CustomersTable customers={customers} />
             </>
+          ) : null}
+
+          {customers?.length ? (
+            <CustomersTable customers={customers} />
           ) : (
             <Card>
               <CardHeader>

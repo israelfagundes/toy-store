@@ -17,7 +17,7 @@ export const useAuthStore = create<AuthState>()(
             nome: 'Administrador'
           };
 
-          await sleep(2000)
+          await sleep(1000)
 
           set({ user, isAuthenticated: true });
           return true;
