@@ -2,6 +2,7 @@ import { AlertTriangle, Loader2 } from "lucide-react";
 import { CustomersTable } from "@/components/customers-table";
 import { Header } from "@/components/layout/header";
 import { MetricsCards } from "@/components/metrics-cards";
+import { SalesChart } from "@/components/sales-chart";
 import { Skeleton } from "@/components/ui/skeleton";
 import { API_BASE_URL, useCustomers } from "@/hooks/use-customers";
 import { Alert, AlertDescription } from "../components/ui/alert";
@@ -82,7 +83,7 @@ export function Dashboard() {
             <h1 className="mb-4 font-bold text-4xl">
               Dashboard da Loja de Brinquedos
             </h1>
-            <p className="text-muted-foreground text-xl">
+            <p className="text-muted-foreg`round text-xl">
               Gerencie clientes e visualize estatísticas de vendas
             </p>
           </div>
@@ -90,6 +91,7 @@ export function Dashboard() {
           {customers?.length ? (
             <>
               <MetricsCards customers={customers} />
+              <SalesChart customers={customers} />
               <CustomersTable customers={customers} />
             </>
           ) : (
