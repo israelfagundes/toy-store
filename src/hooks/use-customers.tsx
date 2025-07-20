@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import type { Customer, CustomersApiResponse } from "@/types";
 import { normalizeCustomersData } from "@/utils/data-utils";
 
-export const API_BASE_URL = "http://localhost:3000";
+export const API_BASE_URL = "http://localhost:3001";
 
 type UseCustomers = {
   setCustomers: (clientes: Customer[]) => void;
