@@ -18,14 +18,6 @@ interface SalesChartProps {
   customers: Customer[];
 }
 
-const COLORS = [
-  "",
-  "hsl(var(--accent))",
-  "hsl(var(--success))",
-  "hsl(var(--warning))",
-  "hsl(var(--primary-glow))",
-];
-
 export function SalesChart({ customers }: SalesChartProps) {
   const [datas, setDatas] = useState<TooltipProps | null>(null);
 

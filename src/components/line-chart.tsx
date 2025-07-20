@@ -385,7 +385,7 @@ type PayloadItem = {
 interface ChartTooltipProps {
   active: boolean | undefined;
   payload: PayloadItem[];
-  label: string;
+  label: string | number | undefined;
   valueFormatter: (value: number) => string;
 }
 
@@ -554,7 +554,10 @@ const LineChart = forwardRef<HTMLDivElement, LineChartProps>((props, ref) => {
   const prevActiveRef = useRef<boolean | undefined>(undefined);
   const prevLabelRef = useRef<string | undefined>(undefined);
 
-  function onDotClick(itemData: any, event: MouseEvent) {
+  function onDotClick(
+    itemData: any,
+    event: React.MouseEvent<SVGCircleElement, MouseEvent>
+  ) {
     event.stopPropagation();
 
     if (!hasOnValueChange) return;
@@ -720,9 +723,13 @@ const LineChart = forwardRef<HTMLDivElement, LineChartProps>((props, ref) => {
                 (active !== prevActiveRef.current ||
                   label !== prevLabelRef.current)
               ) {
-                tooltipCallback({ active, payload: cleanPayload, label });
+                tooltipCallback({
+                  active,
+                  payload: cleanPayload,
+                  label: label as string,
+                });
                 prevActiveRef.current = active;
-                prevLabelRef.current = label;
+                prevLabelRef.current = label as string;
               }
 
               return showTooltip && active ? (
@@ -774,7 +781,7 @@ const LineChart = forwardRef<HTMLDivElement, LineChartProps>((props, ref) => {
             <Line
               activeDot={(props: any) => {
                 const {
-                  cn: cnCoord,
+                  cx: cnCoord,
                   cy: cyCoord,
                   stroke,
                   strokeLinecap,
@@ -792,7 +799,7 @@ const LineChart = forwardRef<HTMLDivElement, LineChartProps>((props, ref) => {
                         "fill"
                       )
                     )}
-                    cn={cnCoord}
+                    cx={cnCoord}
                     cy={cyCoord}
                     fill=""
                     onClick={(_, event) => onDotClick(props, event)}
