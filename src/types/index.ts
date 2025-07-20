@@ -11,7 +11,7 @@ export interface AuthState {
   logout: () => void;
 }
 
-export interface Sell {
+export interface Sale {
   data: string;
   valor: number;
 }
@@ -21,7 +21,7 @@ export interface Customer {
   nomeCompleto: string;
   email: string;
   nascimento: string;
-  vendas: Sell[];
+  vendas: Sale[];
 }
 
 export interface CustomersApiResponse {
@@ -38,7 +38,7 @@ export interface CustomersApiResponse {
         nomeCompleto: string;
       };
       estatisticas: {
-        vendas: Sell[];
+        vendas: Sale[];
       };
     }>;
   };
